@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thikana Cafe & Restaurant | Nangloi, New Delhi</title>
+    <!-- Google Fonts for Cozy, Warm Vibe -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #4a2e18; /* Warm Rich Coffee Brown */
+            --accent: #d97706;  /* Cozy Warm Amber */
+            --accent-hover: #b45309;
+            --bg-warm: #fcf8f2; /* Soft Cream Background */
+            --card-bg: #ffffff;
+            --text-dark: #2d2016;
+            --text-muted: #6b574b;
+            --border-color: #e6decb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-warm);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .logo {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(252, 248, 242, 0.95);
+            backdrop-filter: blur(8px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 5%;
+            box-shadow: 0 2px 15px rgba(74, 46, 24, 0.05);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .order-btn-nav {
+            background-color: var(--accent);
+            color: white !important;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            transition: background 0.3s;
+        }
+
+        .order-btn-nav:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* Hero Section */
+        header.hero {
+            padding: 10rem 5% 6rem;
+            background: linear-gradient(135deg, #f9f0e3 0%, #f4e3cd 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .rating-badge {
+            background: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .rating-badge i {
+            color: #f59e0b;
+        }
+
+        header.hero h1 {
+            font-size: 3.2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            max-width: 800px;
+        }
+
+        header.hero p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .hero-image-container {
+            width: 100%;
+            max-width: 900px;
+            margin: 2rem 0 2.5rem;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(74, 46, 24, 0.15);
+            border: 3px solid white;
+        }
+
+        .hero-image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            max-height: 450px;
+            object-fit: cover;
+        }
+
+        .hero-tags {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .tag {
+            background: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(74, 46, 24, 0.2);
+        }
+
+        .btn-primary:hover {
+            background-color: #382112;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        /* Container Generic */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+        }
+
+        /* About & Ambience */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(74, 46, 24, 0.04);
+            border: 1px solid var(--border-color);
+        }
+
+        .about-card h3 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-top: 1.5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .features-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .features-list i {
+            color: var(--accent);
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            background-color: #f7f1e5;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-img-wrap {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .gallery-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-card:hover .gallery-img-wrap img {
+            transform: scale(1.05);
+        }
+
+        .gallery-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .gallery-content h3 {
+            color: var(--primary);
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Menu Highlights */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .menu-item {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-img-wrap {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .menu-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .menu-item:hover .menu-img-wrap img {
+            transform: scale(1.05);
+        }
+
+        .menu-item-content {
+            padding: 1.8rem;
+        }
+
+        .menu-tag {
+            background: #fef3c7;
+            color: #92400e;
+            padding: 0.2rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 0.8rem;
+        }
+
+        .menu-item h3 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .menu-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .order-online-banner {
+            background: linear-gradient(135deg, var(--primary) , #2d2016);
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .order-online-banner h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .order-online-banner p {
+            color: #d1c7bc;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Reviews Section */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .review-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            position: relative;
+        }
+
+        .review-stars {
+            color: #f59e0b;
+            margin-bottom: 1rem;
+        }
+
+        .review-card p {
+            font-style: italic;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .reviewer-info h4 {
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .reviewer-info span {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Location & Contact */
+        .contact-section {
+            background-color: #f7f1e5;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: stretch;
+        }
+
+        .contact-info-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .contact-detail {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .contact-detail i {
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-top: 0.2rem;
+        }
+
+        .contact-detail h4 {
+            color: var(--primary);
+            margin-bottom: 0.2rem;
+        }
+
+        .contact-detail p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .map-placeholder {
+            background: #e6decb;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: var(--primary);
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+
+        .map-placeholder i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: #e6decb;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.95rem;
+        }
+
+        footer span {
+            color: var(--accent);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .about-grid, .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            header.hero h1 {
+                font-size: 2.3rem;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <i class="fa-solid fa-mug-hot"></i> Thikana Cafe <span>& Restaurant</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#gallery">Ambience</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#menu" class="order-btn-nav">Order Online</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="rating-badge">
+            <i class="fa-solid fa-star"></i> 4.3 (189+ Reviews) · ₹200–400 per person
+        </div>
+        <h1>Your Cozy Spot for Great Food & Warm Vibes</h1>
+        <p>Experience wonderful rooftop dining, mouth-watering fast food, and friendly service right in the heart of Nangloi, New Delhi.</p>
+        
+        <!-- Hero Rooftop Image -->
+        <div class="hero-image-container">
+            <img src="watermarked_img_1813196812112639704.png" alt="Cozy rooftop cafe ambience at twilight">
+        </div>
+
+        <div class="hero-tags">
+            <div class="tag"><i class="fa-solid fa-check-circle" style="color:var(--accent);"></i> Dine-in Available</div>
+            <div class="tag"><i class="fa-solid fa-check-circle" style="color:var(--accent);"></i> Drive-through</div>
+            <div class="tag"><i class="fa-solid fa-check-circle" style="color:var(--accent);"></i> No-Contact Delivery</div>
+        </div>
+
+        <div class="cta-buttons">
+            <a href="#menu" class="btn btn-primary">Explore Menu & Order</a>
+            <a href="#contact" class="btn btn-outline">Get Directions</a>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="container">
+        <div class="about-grid">
+            <div class="about-card">
+                <h3>Welcome to Thikana Cafe</h3>
+                <p>Located in Inder Enclave, Kirari Suleman Nagar, Thikana Cafe & Restaurant is famous for offering a relaxed atmosphere paired with delectable fast food favorites.</p>
+                <p style="margin-top: 1rem;">Whether you want to unwind on our rooftop under the evening sky or grab a quick bite with friends, our lovely staff ensures a delightful experience every time.</p>
+                
+                <ul class="features-list">
+                    <li><i class="fa-solid fa-snowflake"></i> Rooftop Ambience</li>
+                    <li><i class="fa-solid fa-face-smile"></i> Friendly Staff</li>
+                    <li><i class="fa-solid fa-wallet"></i> Super Affordable</li>
+                    <li><i class="fa-solid fa-utensils"></i> Fast Food & Momos</li>
+                </ul>
+            </div>
+            <div class="about-card" style="background: linear-gradient(135deg, #f9f0e3 0%, #f4e3cd 100%);">
+                <h3>Open Everyday</h3>
+                <p>We are ready to serve you tasty treats daily from morning until late evening.</p>
+                <div style="margin-top: 1.5rem; font-size: 1.2rem; font-weight: 700; color: var(--primary);">
+                    <i class="fa-regular fa-clock" style="color: var(--accent);"></i> Open Daily · Closes 10:00 PM
+                </div>
+                <p style="margin-top: 1rem; color: var(--text-muted); font-size: 0.95rem;">
+                    <strong>Address:</strong> Gali no 1, Gaurav Nagar Veer Bazaar Road, Nangloi, Sukhi Nehar, Kirari Suleman Nagar, New Delhi, Delhi 110086
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rooftop Ambience Gallery Section (New Uploads) -->
+    <section id="gallery" class="container gallery-section">
+        <h2>Rooftop Ambience Gallery</h2>
+        <p class="section-subtitle">Food that deserves a story, not just a bite ✨</p>
+
+        <div class="gallery-grid">
+            <!-- Gallery Item 1 -->
+            <div class="gallery-card">
+                <div class="gallery-img-wrap">
+                    <img src="thikana1..png" alt="Thikana Cafe rooftop setting with cozy seating and vibe quotes">
+                </div>
+                <div class="gallery-content">
+                    <h3>Food That Deserves a Story</h3>
+                    <p>Immerse yourself in a vibe that turns ordinary evenings into unforgettable memories with friends and loved ones.</p>
+                </div>
+            </div>
+
+            <!-- Gallery Item 2 -->
+            <div class="gallery-card">
+                <div class="gallery-img-wrap">
+                    <img src="thikana2..png" alt="Rooftop glowing under starry string lights and colorful seating">
+                </div>
+                <div class="gallery-content">
+                    <h3>Magical Starry Nights</h3>
+                    <p>Relax under a canopy of string lights and decorative star lanterns designed for the ultimate cozy dining experience.</p>
+                </div>
+            </div>
+
+            <!-- Gallery Item 3 -->
+            <div class="gallery-card">
+                <div class="gallery-img-wrap">
+                    <img src="thikana3..png" alt="Aerial nighttime view of party and gathering at the rooftop">
+                </div>
+                <div class="gallery-content">
+                    <h3>Vibrant Gatherings & Parties</h3>
+                    <p>An aerial look at our lively rooftop space filled with bright lights, music, and a cheerful crowd enjoying the evening.</p>
+                </div>
+            </div>
+
+            <!-- Gallery Item 4 -->
+            <div class="gallery-card">
+                <div class="gallery-img-wrap">
+                    <img src="thikana4..png" alt="Angel wings wall art and beautiful rainy evening setup">
+                </div>
+                <div class="gallery-content">
+                    <h3>Angel Wings & Aesthetic Corners</h3>
+                    <p>Strike a pose at our iconic angel wings mural wall—the perfect backdrop for your memorable photos and selfies!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="container">
+        <h2>Our Popular Menu & Specialties</h2>
+        <p class="section-subtitle">Delicious fast food favorites loved by our community</p>
+
+        <div class="menu-grid">
+            <div class="menu-item">
+                <div class="menu-img-wrap">
+                    <img src="watermarked_img_5610116863849927024.png" alt="Veg Paneer Momos with spicy dipping sauce">
+                </div>
+                <div class="menu-item-content">
+                    <span class="menu-tag">Customer Favorite</span>
+                    <h3>Veg Paneer Momos</h3>
+                    <p>Steamed to perfection with a soft wrapper and juicy, flavorful paneer filling served with spicy dipping sauce.</p>
+                    <div style="font-weight: 700; color: var(--primary);">Popular Pick 😋</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-img-wrap">
+                    <img src="watermarked_img_1345964576468155126.png" alt="Savory wok tossed noodles with vegetables">
+                </div>
+                <div class="menu-item-content">
+                    <span class="menu-tag">Specialty</span>
+                    <h3>Tasty Noodles</h3>
+                    <p>Wok-tossed noodles packed with fresh vegetables, authentic seasonings, and a brilliant savory flavor profile.</p>
+                    <div style="font-weight: 700; color: var(--primary);">Hot & Fresh</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-img-wrap">
+                    <img src="watermarked_img_469387976723313637.png" alt="Freshly baked Margherita Pizza with melted mozzarella">
+                </div>
+                <div class="menu-item-content">
+                    <span class="menu-tag">Fast Food</span>
+                    <h3>Margherita Pizza</h3>
+                    <p>Classic cheesy pizza with a rich tomato base, herbs, and melted mozzarella (a great quick snack).</p>
+                    <div style="font-weight: 700; color: var(--primary);">Cheese Lovers</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="order-online-banner">
+            <h3>Hungry? Order Online or Pick Up!</h3>
+            <p>Enjoy our delicious food right at your doorstep with our no-contact delivery, or drop by for a quick drive-through.</p>
+            <a href="tel:09069062715" class="btn btn-primary" style="background-color: var(--accent);"><i class="fa-solid fa-phone"></i> Call 090690 62715 to Order</a>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="container gallery-section">
+        <h2>What Our Customers Say</h2>
+        <p class="section-subtitle">Real feedback from 189+ happy food lovers</p>
+
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p>"Acha ambience hai rooftop per, affordable and decent quality of food, bas margherita pizza se disappointed tha, overall satisfied."</p>
+                <div class="reviewer-info">
+                    <h4>Shubham Yadav</h4>
+                    <span>Local Guide</span>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p>"Really best restaurant in my area. Best food, good service and vibes. Very good product quality and lovely behaviour staff!"</p>
+                <div class="reviewer-info">
+                    <h4>Shiva Sharma</h4>
+                    <span>Verified Customer</span>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p>"Best place for eat taste was very good, specially veg paneer momo 😋. Great hospitality by the team!"</p>
+                <div class="reviewer-info">
+                    <h4>Suraj Mehta</h4>
+                    <span>Verified Customer</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Location Section -->
+    <section id="contact" class="container">
+        <h2>Find & Contact Us</h2>
+        <p class="section-subtitle">We would love to host you today</p>
+
+        <div class="contact-grid">
+            <div class="contact-info-card">
+                <div>
+                    <h3 style="color: var(--primary); margin-bottom: 1.5rem;">Thikana Cafe & Restaurant</h3>
+                    
+                    <div class="contact-detail">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>
+                            <h4>Address</h4>
+                            <p>Gali no 1, Gaurav Nagar Veer Bazaar Road, Nangloi, Sukhi Nehar, Kirari Suleman Nagar, New Delhi, Delhi 110086<br><small>Located in: Inder Enclave</small></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail">
+                        <i class="fa-solid fa-phone-volume"></i>
+                        <div>
+                            <h4>Phone Number</h4>
+                            <p><a href="tel:09069062715" style="color: var(--text-dark); text-decoration: none;">090690 62715</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail">
+                        <i class="fa-solid fa-clock"></i>
+                        <div>
+                            <h4>Timing</h4>
+                            <p>Open everyday until 10:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem;">
+                    <a href="https://maps.google.com/?q=Thikana+Cafe+Restaurant+Nangloi+New+Delhi" target="_blank" class="btn btn-primary" style="display: block; text-align: center;">Open in Google Maps</a>
+                </div>
+            </div>
+
+            <div class="map-placeholder">
+                <i class="fa-solid fa-map-location-dot"></i>
+                <h3 style="color: var(--primary); margin-bottom: 0.5rem;">Visit Our Rooftop Cafe</h3>
+                <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Located near Sukhi Nehar, Kirari Suleman Nagar, New Delhi.</p>
+                <a href="https://maps.google.com/?q=Thikana+Cafe+Restaurant+Nangloi+New+Delhi" target="_blank" class="btn btn-outline" style="border-color: var(--primary); color: var(--primary);">Get Directions</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 <span>Thikana Cafe & Restaurant</span>. All rights reserved. | Designed with cozy warmth ☕</p>
+    </footer>
+
+</body>
+</html>
